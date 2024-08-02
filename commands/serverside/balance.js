@@ -21,12 +21,12 @@ module.exports = {
                 interaction.reply('There was an error reading the balance data.');
                 return;
             }
-
+        // Grabs the name and current currency and appends them to their own variables
             try {
                 const playerData = JSON.parse(data);
                 const balance = playerData.m_OwnedCurrency;
                 const playerName = playerData.m_PlayerName;
-
+        // Handles messed up ids and if it completes will push them into a template literal to be displayed as a reply
                 if (balance !== undefined) {
                     interaction.reply(`${playerName} currently has ${balance.toLocaleString()} Nova Coins.`);
                 } else {
